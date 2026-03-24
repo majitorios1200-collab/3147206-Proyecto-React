@@ -1,68 +1,73 @@
-export default function Input({label, type = "text", ...props}) {
-    //Cuerpo de la funcion
-    return (
-        //Contenedor del input que se exporta con label, cuerpo y feedback message
-        <div className="w-[320px]">
-
-            {/* Label */}
-            <label 
-                className="
+export default function Input({ label, type = "text", ...props }) {
+  // Cuerpo de la función
+  return (
+    // Contenedor del input que se exporta con label, cuerpo y feedback message
+    <div className="w-[320px]">
+      
+      {/* Label */}
+      {label && (
+        <label
+          className="
                     block
-                    text-caption
+                    text-[8px]
                     mb-1
-                    text-text-primary
+                    place-self-start
                 "
-                >
-                {label}
+        >
+          {label}
+        </label>
+      )}
 
-            </label>
+      {/* ============================================================ */}
 
-            {/* Contenedor del input */}
+      {/* Contenedor del input */}
+      <div
+        className="
+          relative
+          h-12
+          flex
+          items-center          
+        "
+      >
+        {/* Área interactiva invisible de un input 48px */}
+        <div
+          className="
+                        absolute
+                        inset-0
+                    "
+          onMouseDown={(e) => {
+            e.preventDefault();
+            // Mueve el foco al siguiente elemento hermano del elemento actual.
+            // `currentTarget` referencia el elemento que tiene el handler del evento.
+            // `nextSibling` obtiene el siguiente nodo en el DOM (puede ser un input u otro elemento).
+            // `focus()` cambia el foco del usuario hacia ese elemento.
+            e.currentTarget.nextSibling.focus();
+          }}
+        />
 
-                
-                {/*Area interactiva invisible de un input 48px */}
+        {/* Área visual del input */}
+        <input
+          type={type}
+          className="
+                relative
+                w-full
+                h-12
+                rounded-md
+                border
+                border-border
+                px-4
+                text-base
 
-                <div className="
-                    absolute
-                    insert-0
-                "
-                onMouseDown={(e) => {
-                    e.preventDefault();
-                    /* Mueve el foco el siguiente elemento hermano del elemento actual.
-                    currentTraget referencia el elemento que tiene el handler del evento 
+                focus:outline-none
+                focus:ring-2
+                focus:ring-focus-ring
+                focus:border-focus-border
+            "
+          {...props}
+        />
+      </div>
 
-                    nextSibling obtiene el siguiente nodo en el dom 
-
-                    focus() cambia el foco del usuario hacia ese elemnto */
-                    e.currentTarget.nextSibling.focus();
-                }}
-                ></div>
-
-                {/* Area  visual del input */}
-                <Input
-                    className="
-                    relative
-                    w-full
-                    h-12
-                    roundend-md
-                    border
-                    border-border
-                    px-4
-                    text-base
-
-                    focus:outline-none
-                    focus:ring-2
-                    focus:ring-focus-ring
-                    focus:border-focus-border
-                "
-
-                    {...props}
-                >
-            </Input>
-            
-
-            {/* Feedback message */}
-            
-        </div>
-    )
+      {/* Feedback */}
+    </div>
+  );
 }

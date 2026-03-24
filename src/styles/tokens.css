@@ -1,121 +1,85 @@
+/* Se ingresan las variables tal y como se planearon en la guía de estilos */
+
 :root {
     /* Primary color*/
-    --Primary-50: #FCFAFC;
-    --Primary-100: #F3ECF3;
-    --Primary-200: #E5D8E7;
-    --Primary-300: #D4BED7;
-    --Primary-400: #C2A2C6;
-    --Primary-500: #AE84B3;
-    --Primary-600: #9C68A2;
-    --Primary-700: #8B4E92;
-    --Primary-800: #7D3A86;
-    --Primary-900: #742C7D;
-    --Primary-950: #71277A;
+    --color-primary-950: #4DB100;
+    --color-primary-900: #55B40C;
+    --color-primary-800: #67BC26;
+    --color-primary-700: #79C43F;
+    --color-primary-600: #8BCC59;
+    --color-primary-500: #9DD472;
+    --color-primary-400: #AEDB8C;
+    --color-primary-300: #C0E3A5;
+    --color-primary-200: #D2EBBF;
+    --color-primary-100: #EAF3D8;
+    --color-primary-50: #F6FBF2;
 
-    /* Secundary color*/
-    --Secondary-50: #FBFEFF;
-    --Secondary-100: #F0FDFE;
-    --Secondary-200: #DFFAFE;
-    --Secondary-300: #CAF7FD;
-    --Secondary-400: #B3F4FC;
-    --Secondary-500: #9CF0FC;
-    --Secondary-600: #85EDFB;
-    --Secondary-700: #70EAFA;
-    --Secondary-800: #5FE7FA;
-    --Secondary-900: #54E6F9;
-    --Secondary-950: #50E5F9;
+    /* Secondary color*/
+    --color-secondary-950:#FED638;
+    --color-secondary-900:#FED841;
+    --color-secondary-800:#FEDC55;
+    --color-secondary-700:#FEE069;
+    --color-secondary-600:#FEE47D;
+    --color-secondary-500:#FEE891;
+    --color-secondary-400:#FEECA5;
+    --color-secondary-300:#FEF0B9;
+    --color-secondary-200:#FEF4CD;
+    --color-secondary-100:#FEF8E1;
+    --color-secondary-50:#FEFCF5;
 
-    /*Tertiary color*/
-    --Tertiary-50: #F9FAFB;
-    --Tertiary-100: #F0FDFE;
-    --Tertiary-200: #F0FDFE;
-    --Tertiary-300: #B2C1CA;
-    --Tertiary-400: #91A6B2;
-    --Tertiary-500: #6E899A;
-    --Tertiary-600: #4D6E82;
-    --Tertiary-700: #2F566D;
-    --Tertiary-800: #16425D;
-    --Tertiary-900: #063551;
-    --Tertiary-950: #00304D;
+    /* Tertiary-2 color*/
+    --color-tertiary-950:#50E5F9;
+    --color-tertiary-900:#58E6F9;
+    --color-tertiary-800:#6AE8F9;
+    --color-tertiary-700:#7BEBFA;
+    --color-tertiary-600:#8DEEFB;
+    --color-tertiary-500:#9EF0FB;
+    --color-tertiary-400:#B0F3FC;
+    --color-tertiary-300:#C1F5FC;
+    --color-tertiary-200:#D3F8FD;
+    --color-tertiary-100:#E4FBFE;
+    --color-tertiary-50:#F6FDFE;
 
-    /*Quaternary color*/
-    --Quaternary-50: #F5FAF2;
-    --Quaternary-100: #E1F2D8;
-    --Quaternary-200: #CDE9BF;
-    --Quaternary-300: #B9E0A5;
-    --Quaternary-400: #A5D88C;
-    --Quaternary-500: #92CF72;
-    --Quaternary-600: #7EC759;
-    --Quaternary-700: #6ABE3F;
-    --Quaternary-800: #56B526;
-    --Quaternary-900: #42AD0C;
-    --Quaternary-950: #39A900;
+    /* Basic color*/
+    --color-white: #fff;
+    --color-black: #000;
+    --color-gray-950: #101010;
+    --color-gray-900: #262626;
+    --color-gray-800: #3B3B3B;
+    --color-gray-700: #515151;
+    --color-gray-600: #676767;
+    --color-gray-500: #7D7D7D;
+    --color-gray-400: #929292;
+    --color-gray-300: #A8A8A8;
+    --color-gray-200: #BEBEBE;
+    --color-gray-100: #D4D4D4;
+    --color-gray-50: #E9E9E9;
 
-    /*Quinary color*/
-    --Quinary-50: #ECF5F0;
-    --Quinary-100: #D7EADF;
-    --Quinary-200: #BDDCCA;
-    --Quinary-300: #9FCCB2;
-    --Quinary-400: #80BC99;
-    --Quinary-500: #60AB7F;
-    --Quinary-600: #429B67;
-    --Quinary-700: #288D52;
-    --Quinary-800: #138241;
-    --Quinary-900: #057B36;
-    --Quinary-950: #007832;
+    /* Typography */
+    --main-font: Helvetica, Arial, sans-serif;
+    --secondary-font:Calibri, Helvetica, Arial;
 
-    /*Senatorial color*/
-    --Senatorial-50: #FEFDF8;
-    --Senatorial-100: #FEF9E6;
-    --Senatorial-200: #FEF2CC;
-    --Senatorial-300: #FEECB3;
-    --Senatorial-400: #FEE599;
-    --Senatorial-500: #FEDD80;
-    --Senatorial-600: #FED666;
-    --Senatorial-700: #FEC74D;
-    --Senatorial-800: #FDC833;
-    --Senatorial-900: #FDC11A;
-    --Senatorial-950: #FDC300;
-
-    /*Neutrals color*/
-    --Neutrals-50: #FFFFFF;
-    --Neutrals-100: #000000;
-    --Neutrals-200: #181818;
-    --Neutrals-300: #242424;
-    --Neutrals-400: #3D3D3D;
-    --Neutrals-500: #878787;
-    --Neutrals-600: #9F9F9F;
-    --Neutrals-700: #B8B8B8;
-    --Neutrals-800: #D1D1D1;
-    --Neutrals-900: #E9E9E9;
-    --Neutrals-950: #F6F6F6;
-
-    /*Font-family*/
-    --main-font: Work Sans, Helvetica, Arial;
-    --secundary-font: Calibri, Helvetica, Arial;
-
-    /*Font weights crudos*/
+      /* Font weights crudos */
     --font-weight-light: 300;
     --font-weight-regular: 400;
     --font-weight-bold: 700;
 
-    /*Font variants*/
-    --regular-variant: regular;
-    --medium-variant: medium;
-    --semi-bold-variant: semi-bold;
+    /* Font variants */
+    --light-variant: light;
+    --medium-variant: medium;     
+    --bold-variant: bold;   
 
-    
-    --fs-xxxxl: 5rem; /*Ultra Grande*/
-    --fs-xxxl: 4rem; /*Super Grande*/
-    --fs-xxl: 3rem; /*Extra Grande*/
-    --fs-xl: 2.5rem; /*Muy Grande*/
-    --fs-lg: 2rem; /*Grande*/
-    --fs-md: 1.5rem; /*Mediano*/
-    --fs-sm: 1.25rem; /*Pequeño*/
-    --fs-xs: 1rem; /*Base*/
-    --fs-xxs: 0.875rem; /*Muy pequeño 14px*/
-    --fs-xxxs: 0.75rem; /*Extra extra pequeño 12px*/
-    --fs-xxxs: 0.5rem; /*Minimo 8px*/
-
+    /* Font-size */
+    --fs-xxxxl: 5rem; /* Ultra grande */
+    --fs-xxxl: 4rem; /* Súper grande */
+    --fs-xxl: 3rem; /* Extra grande */
+    --fs-xl: 2.5rem;  /* Muy grande */
+    --fs-lg: 2rem;  /* Grande */
+    --fs-md: 1.5rem;  /* Mediano */
+    --fs-sm: 1.25rem;  /* Pequeño */
+    --fs-xs: 1rem;  /* Base */
+    --fs-xxs: 0.875rem; /* Muy pequeño 14px */
+    --fs-xxxs: 0.75rem; /*  Extra extra pequeño 12px*/
+    --fs-xxxxs: 0.5rem; /* Mínimo 8px */
 }
 
