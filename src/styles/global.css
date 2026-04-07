@@ -1,4 +1,4 @@
-@import url(tokens.css);
+ @import url(tokens.css);
 @import url(semantic.css);
 @import "tailwindcss";  /*Está línea debe quedar al final para que funcione*/
 

@@ -1,7 +1,15 @@
-import { Input, Button } from "@/shared";
+import { useState, useEffect} from "react"
+import { Input, Button, DeleteEffect, DeleteCounter2, Select } from "@/shared";
+import { getDocumentTypes } from "@/features/users/services/selectService";
 
 export default function UserRegisterForm(){
 
+    const [documentTypes, setDocumentTypes] = useState([])
+
+    useEffect(() => {
+        getDocumentTypes().then(setDocumentTypes);
+    },[])
+    
     const handleNameChange = (e) => {
         console.log("Nombre: ", e.target.value)
     }
@@ -59,6 +67,13 @@ export default function UserRegisterForm(){
             type="number"
         />
 
+        <Select
+            label = "Tipo de documento"
+            name = "documentType"
+            options = {documentTypes}
+        />
+
+
       {/*Actions */}
 
         <div className="flex items-end justify-center gap-6">
@@ -75,7 +90,16 @@ export default function UserRegisterForm(){
             </Button>
                 </div>
             </div>
+
+        
         </form>
+
+        {/* <DeleteCounter/> */}
+
+        {/*Uso del useEffect */}
+        <DeleteEffect/>
+
+        <DeleteCounter2/>
     </div>
-    )
+    );
 }
