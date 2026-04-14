@@ -34,8 +34,8 @@
 
     /* ======= FOCUS ====== */
 
-    --semantic-focus-ring: var(--color-primary-700);
-    --semantic-focus-border: var(--color-primary-500);
+    --semantic-focus-ring: var(--color-primary-950);
+    --semantic-focus-border: var(--color-primary-950);
 
     /* ======= STATE ======= */
 
@@ -61,10 +61,5 @@
     --semantic-font-weight-body: var(--font-weight-regular);
     --semantic-font-weight-label: var(--font-weight-regular);
 
-    /* ============== DARK THEME ============== */
 
-    /* ============================================= */
-    /**      YA NO DEPENDEMOS DE NOMBRES DE COLOR,   
-                DEPENDEMOS ES DE INTENCIÓN
-    /* ============================================= */
 }

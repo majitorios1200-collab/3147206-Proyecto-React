@@ -1,6 +1,7 @@
 export default function Select({
     label,
     name,
+    error,
     options = [],
 
 }){
@@ -10,21 +11,26 @@ export default function Select({
         <div className="w-[320px]">
 
             {label && (
-                <label className="block text-caption mb-1 text-text-secondar place-self-start">
+                <label className= {`block text-caption mb-1 text-text-secondar place-self-start ${error ? "text-red-800" : "text-text-primary"}`}>
                     {label}
                 </label>
             )}
 
             <select
                 name={name}
-                className ="
+                className ={`
                 w-full 
                 h-12 
                 rounded-md
                 border
                 border-border
                 px-4
-                "
+
+                hover:border-2
+                hover:border-focus-border
+
+                ${error ? "border-red-800" : "border border-border"}
+                `}
                 > 
                 <option value="">Selecciona una opcion</option>  
 
@@ -38,7 +44,7 @@ export default function Select({
                 }
 
             </select>
-
+                {error && <p className="text-caption text-red-800 place-self-start">{error}</p>}
         </div>
     )
 }

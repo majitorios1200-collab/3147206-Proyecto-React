@@ -1,36 +1,96 @@
 import { useState, useEffect} from "react"
-import { Input, Button, DeleteEffect, DeleteCounter2, Select } from "@/shared";
 import { getDocumentTypes } from "@/features/users/services/selectService";
+import { userSchema } from "../schemas/userSchemas";
+
+import { Input, Button, DeleteCounter2, Select} from "@/shared";
 
 export default function UserRegisterForm(){
 
     const [documentTypes, setDocumentTypes] = useState([])
-
+    const [formData, setFormData ] = useState({
+        userName: "",
+        userEmail: "",
+        userPhone: "",
+        userDocumentType: "",
+        userDocumentNumber: "",
+        userPassword: "",
+    });
+    const [errors, setErrors] = useState({})
     useEffect(() => {
         getDocumentTypes().then(setDocumentTypes);
     },[])
     
-    const handleNameChange = (e) => {
-        console.log("Nombre: ", e.target.value)
+    // =============================================
+    //             Handle Generico
+    // =============================================
+    /**
+     * Funcion que se ejecuta cada vez que cambia el valor de un input del formulario
+     */
+
+    const handleChange = (e) => {
+        //Se obtiene el nombre del campo y su valor 
+        const { name, value} = e.target;
+
+        setFormData((prev) => ({
+            //Se copian todos los valores anteriores a el estado
+            ...prev, //Rest operatior
+
+            //Se actualiza unicamente lo que cambio 
+            [name]: value,
+        }));
     }
 
-    // const handleEmailBlur = (e) => {
-    //     console.log("Email: ", e.target.value)
-    // }
+    // =============================================
+    //             Handle Submit
+    // =============================================
+    /**
+     * Funcion que se ejecuta cuando se envia el formualario
+     */
+
+    const handleSubmit = (e) => {
+
+        e.preventDefault()
+
+        const result = userSchema.safeParse(formData)
+
+        if(!result.success){
+            const fieldErrors = {};
+
+            result.error.issues.forEach((issue) => {
+                const field = issue.path[0];
+                
+                fieldErrors[field] = issue.message;
+            });
+
+            setErrors(fieldErrors);
+
+            return;
+        }
+
+        setErrors({});
+
+        console.log("Usuario valido", result.data)
+    };
 
     return (
         <div>
             <h1 className="text-text-primary text-2xl mb-6">
                 Registro de usuarios
             </h1>
-        <form className="grid grid-cols-1  items-center gap-6 ">
+        <form 
+        className="grid grid-cols-1  items-center gap-6 "
+        onSubmit={handleSubmit}
+        >
+
             <div className="grid grid-cols-2 gap-6 my-0 mx-auto">
 
         <Input
             label="Nombre"
-            name = "userName"
+            name ="userName"
             placeholder="Ingrese su nombre"
-            onChange={handleNameChange}
+            value = {formData.userName} //Es el valor que ingresa el usuario
+            onChange={handleChange}
+            error={errors.userName}
         />
 
         <Input
@@ -38,32 +98,51 @@ export default function UserRegisterForm(){
             name = "userEmail"
             label="Correo"
             placeholder="Ingrese su correo" 
+            value = {formData.userEmail}
+            onChange={handleChange}
+            error={errors.userEmail}
         />
         
         <Input
             label="Teléfono"
             name = "userPhone"
-            placeholder="Ingrese su teléfono"
             type="tel"
+            placeholder="Ingrese su teléfono"
+            value = {formData.userPhone}
+            onChange={handleChange}
+            error={errors.userPhone}
         />
 
         <Select
             label = "Tipo de documento"
             name = "userDocumentType"
             options = {documentTypes}
+            onChange={handleChange}
+            value = {formData.userDocumentType}
+            error={errors.userDocumentType}
+
+            
+
         />
 
         <Input
             label="Numero de documento"
-            name = "userdocumentNumber"
+            name = "userDocumentNumber"
             placeholder="Ingrese su numero de documento"
+            onChange={handleChange}
+            value = {formData.userDocumentNumber}
+            error={errors.userDocumentNumber}
         />
 
         <Input
             label="Contreseña"
             name = "userPassword"
-            placeholder="Ingrese su contraseña"
             type="password"
+            placeholder="Ingrese su contraseña"
+            value = {formData.userPassword}
+            onChange={handleChange}
+            error={errors.userPassword}
+
         />
         
 
@@ -91,7 +170,7 @@ export default function UserRegisterForm(){
         {/* <DeleteCounter/> */}
 
         {/*Uso del useEffect */}
-        <DeleteEffect/>
+        {/* <DeleteEffect/> */}
 
         <DeleteCounter2/>
     </div>
