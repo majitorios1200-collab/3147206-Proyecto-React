@@ -14,9 +14,9 @@ export default function UserRegisterForm(){
         console.log("Nombre: ", e.target.value)
     }
 
-    const handleEmailBlur = (e) => {
-        console.log("Email: ", e.target.value)
-    }
+    // const handleEmailBlur = (e) => {
+    //     console.log("Email: ", e.target.value)
+    // }
 
     return (
         <div>
@@ -25,55 +25,49 @@ export default function UserRegisterForm(){
             </h1>
         <form className="grid grid-cols-1  items-center gap-6 ">
             <div className="grid grid-cols-2 gap-6 my-0 mx-auto">
+
         <Input
             label="Nombre"
+            name = "userName"
             placeholder="Ingrese su nombre"
             onChange={handleNameChange}
         />
+
         <Input
-            label="Teléfono"
-            placeholder="Ingrese su teléfono"
-            type="tel"
-        />
-        <Input
+            type="email"
+            name = "userEmail"
             label="Correo"
             placeholder="Ingrese su correo" 
-            type="email"
-            onBlur={handleEmailBlur}
         />
+        
         <Input
-            label="Contreseña"
-            placeholder="Ingrese su contraseña"
-            type="password"
-        />
-        <Input
-            label="Edad"
-            placeholder="Ingrese su edad"
-            type="number"
-        />
-        <Input
-            label="Edad"
-            placeholder="Ingrese su edad"
-            type="number"
-        />
-        <Input
-            label="Edad"
-            placeholder="Ingrese su edad"
-            type="number"
-        />
-        <Input
-            label="Edad"
-            placeholder="Ingrese su edad"
-            type="number"
+            label="Teléfono"
+            name = "userPhone"
+            placeholder="Ingrese su teléfono"
+            type="tel"
         />
 
         <Select
             label = "Tipo de documento"
-            name = "documentType"
+            name = "userDocumentType"
             options = {documentTypes}
         />
 
+        <Input
+            label="Numero de documento"
+            name = "userdocumentNumber"
+            placeholder="Ingrese su numero de documento"
+        />
 
+        <Input
+            label="Contreseña"
+            name = "userPassword"
+            placeholder="Ingrese su contraseña"
+            type="password"
+        />
+        
+
+        
       {/*Actions */}
 
         <div className="flex items-end justify-center gap-6">
