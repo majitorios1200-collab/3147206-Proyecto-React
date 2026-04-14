@@ -2,6 +2,8 @@ export default function Select({
     label,
     name,
     error,
+    value,
+    onChange,
     options = [],
 
 }){
@@ -18,6 +20,8 @@ export default function Select({
 
             <select
                 name={name}
+                value={value}
+                onChange={onChange}
                 className ={`
                 w-full 
                 h-12 
