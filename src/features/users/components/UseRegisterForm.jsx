@@ -2,7 +2,7 @@ import { useState, useEffect} from "react"
 import { getDocumentTypes } from "@/features/users/services/selectService";
 import { userSchema } from "../schemas/userSchemas";
 
-import { Input, Button, DeleteCounter2, Select} from "@/shared";
+import { Input, Button, DeleteCounter2, Select, CheckBox} from "@/shared";
 
 export default function UserRegisterForm(){
 
@@ -14,6 +14,11 @@ export default function UserRegisterForm(){
         userDocumentType: "",
         userDocumentNumber: "",
         userPassword: "",
+
+        //Flags Booleanos
+        isStaff: false,
+        isActive: true,
+        isSuperUser: false,
     });
     const [errors, setErrors] = useState({})
     useEffect(() => {
@@ -29,14 +34,14 @@ export default function UserRegisterForm(){
 
     const handleChange = (e) => {
         //Se obtiene el nombre del campo y su valor 
-        const { name, value} = e.target;
+        const { name, value, type , checked} = e.target;
 
         setFormData((prev) => ({
             //Se copian todos los valores anteriores a el estado
             ...prev, //Rest operatior
 
             //Se actualiza unicamente lo que cambio 
-            [name]: value,
+            [name]: type === "checkbox" ? checked : value,
         }));
     }
 
@@ -145,7 +150,32 @@ export default function UserRegisterForm(){
 
         />
         
+        <CheckBox
+            id="isStaff"
+            name="isStaff"
+            label="Es Staff"
+            checked={formData.isStaff}
+            onChange={handleChange}
+        
+        />
 
+        <CheckBox
+            id="isActive"
+            name="isActive"
+            label="Es Active"
+            checked={formData.isActive}
+            onChange={handleChange}
+        
+        />
+
+        <CheckBox
+            id="isSuperUser"
+            name="isSuperUser"
+            label="Es SuperUser"
+            checked={formData.isSuperUser}
+            onChange={handleChange}
+        
+        />
         
       {/*Actions */}
 

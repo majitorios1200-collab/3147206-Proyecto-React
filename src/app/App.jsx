@@ -1,14 +1,7 @@
-import { CreateUserPage} from "@/features/users";
+import { RouterProvider } from "react-router-dom";
+import router from "@/app/router"
+
 export default function App() {
-  return (
-    <div className="min-h text-center grid grid-cols-1 gap-4 ">
+    return <RouterProvider router={router} />;
 
-      <h1 className="text-white text-4xl font-bold  bg-fuchsia-600 p-6">
-        Con Rico Programar Tailwind v4 funciona full...
-      </h1>
-
-      <CreateUserPage/>
-      
-    </div>
-  );
 }
