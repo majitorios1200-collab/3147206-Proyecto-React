@@ -1,10 +1,15 @@
 import { useState, useEffect} from "react"
 import { getDocumentTypes } from "@/features/users/services/selectService";
 import { userSchema } from "../schemas/userSchemas";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import { SquareArrowRightEnter, Menu} from "lucide-react";
 
-import { Input, Button, DeleteCounter2, Select, CheckBox} from "@/shared";
+import { Input, Button,  Select, CheckBox, IconButton, Dropdown, DropdownTrigger,  DropdownItem,
+    DropdownContent,} from "@/shared";
 
 export default function UserRegisterForm(){
+
+    const navigate = useNavigate();
 
     const [documentTypes, setDocumentTypes] = useState([])
     const [formData, setFormData ] = useState({
@@ -79,7 +84,7 @@ export default function UserRegisterForm(){
 
     return (
         <div>
-            <h1 className="text-text-primary text-2xl mb-6">
+            <h1 className="text-text-primary text-2xl mb-6 text-center pt-6">
                 Registro de usuarios
             </h1>
         <form 
@@ -87,7 +92,7 @@ export default function UserRegisterForm(){
         onSubmit={handleSubmit}
         >
 
-            <div className="grid grid-cols-2 gap-6 my-0 mx-auto">
+            <div className="grid grid-cols-2 gap-6 my-0 mx-auto border p-[48px] rounded-[6px]">
 
         <Input
             label="Nombre"
@@ -182,19 +187,68 @@ export default function UserRegisterForm(){
         <div className="flex items-end justify-center gap-6">
             <Button
                 variant="secundary"
-                size = "md">
+                size = "md"
+                onClick={() => navigate(-1)}>
                 Cancelar
             </Button>
 
-            <Button
+            <Button 
                 variant="primary"
-                size = "sm">
+                size = "sm"
+                >
                 Guardar
             </Button>
+
+            {/* Icon Button */}
+            <Link to="/dashboard">
+                <IconButton
+                    variant="ghost">
+                    <SquareArrowRightEnter></SquareArrowRightEnter>
+                    
+                </IconButton>
+
+                
+            </Link>
+
+            {/* Dropdown */}
+            <div className="p-10">
+                <Dropdown>
+                    <DropdownTrigger>
+                        <IconButton arialLabel="Menu de usuario">
+                            <Menu/>
+                        </IconButton>
+                    </DropdownTrigger>
+
+                    <DropdownContent className="right-0 w-48">
+                        <DropdownItem>
+                            <Link to="/auth" className="block w-full">
+                            Autenticacion
+                            </Link>
+                        </DropdownItem>
+
+                        <DropdownItem>
+                            <Link to="/dashboard" className="block w-full">
+                            Panel de control
+                            </Link>
+                        </DropdownItem>
+                    </DropdownContent>
+                </Dropdown>
+
+            </div>
+
+            {/* <a href="/DashboardLayout">
+                <IconButton>
+                    <SquareArrowRightEnter></SquareArrowRightEnter>
+                </IconButton>
+            </a> */}
+
+{/* 
+            <IconButton onClick={() => navigate("/DashboardLayout")}>
+                    <SquareArrowRightEnter></SquareArrowRightEnter>
+            </IconButton> */}
                 </div>
             </div>
 
-        
         </form>
 
         {/* <DeleteCounter/> */}
@@ -202,7 +256,7 @@ export default function UserRegisterForm(){
         {/*Uso del useEffect */}
         {/* <DeleteEffect/> */}
 
-        <DeleteCounter2/>
+        {/* <DeleteCounter2/> */}
     </div>
     );
 }

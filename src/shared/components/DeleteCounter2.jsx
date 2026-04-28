@@ -1,25 +1,25 @@
-import { useState, useEffect } from "react"
+// import { useState, useEffect } from "react"
 
-export default function DeleteCounter2(){
+// export default function DeleteCounter2(){
 
-    const[count, setCount] = useState(0);
-    const[message, setMesagge] = useState("El contador no ha cambiado")
+//     const[count, setCount] = useState(0);
+//     const[message, setMesagge] = useState("El contador no ha cambiado")
 
-    useEffect(() => {
+//     useEffect(() => {
 
-        setTimeout(() => {
-            setMesagge(`El contador cambio a: ${count}`)
-        }, 2000);
-    }, [count])
+//         setTimeout(() => {
+//             setMesagge(`El contador cambio a: ${count}`)
+//         }, 2000);
+//     }, [count])
 
-    return (
-        <div>
-            <h2>{count}</h2>
-            <p>{message}</p>
+//     return (
+//         <div>
+//             <h2>{count}</h2>
+//             <p>{message}</p>
 
-            <button onClick= {() => setCount(count + 1)} className="border p-3">
-                Incrementar
-            </button>
-        </div>
-    )
-}
+//             <button onClick= {() => setCount(count + 1)} className="border p-3">
+//                 Incrementar
+//             </button>
+//         </div>
+//     )
+// }
