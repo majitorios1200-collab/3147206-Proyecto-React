@@ -1,7 +1,7 @@
 import { Outlet, Link} from "react-router-dom"
 import heroBg from "@/assets/images/bg-3.jpg"
 import {SquareArrowLeft } from "lucide-react";
-import { IconButton} from "@/shared";
+import { IconButton, Navbar} from "@/shared";
 
 
 // import { CreateUserPage } from "../../features/users"
@@ -15,15 +15,24 @@ export default function DashboardLayout () {
         className="absolute inset-0 -z-10 bg-cover bg-center"
         style={{ backgroundImage: `url(${heroBg})`}}
         />
-        <Link to="/">
+
+        <Navbar/>
+        {/* <Link to="/">
                 <IconButton>
                     <SquareArrowLeft/>
                     
                 </IconButton>
 
                 
-            </Link>
+            </Link> */}
         {/* <CreateUserPage/> */}
+
+        {/* Contenido Dinamico de las paginas */}
+        <main>
+        {/* <CreateUserPage/> */}
+        <Outlet/>  
+
+        </main>      
         </div>
     )
 }

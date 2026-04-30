@@ -7,10 +7,11 @@ export { default as CheckBox} from "./components/CheckBox";
 export { default as AuthLayout } from "./layouts/AuthLayout";
 export { IconButton } from "./components/IconButton";
 // export { default as CallToActionLayout} from "./layouts/CallToActionLayout";
-export { default as DashboardLayout } from "./layouts/DashboardLayout";
 export { 
     Dropdown,
     DropdownTrigger,
     DropdownItem,
     DropdownContent,
 } from "./components/Dropdown";
+export { default as DashboardLayout } from "./layouts/DashboardLayout";
+export { default as Navbar } from "./layouts/Navbar";
