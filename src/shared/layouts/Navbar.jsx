@@ -74,7 +74,7 @@ export default function Navbar() {
                         <DropdownItem>
                             <Link to="/dashboard" className="block w-full">
                             Panel de control
-                            </Link>
+                            </Link>                           
                         </DropdownItem>
 
                         <DropdownItem>
