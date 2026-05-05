@@ -15,3 +15,5 @@ export {
 } from "./components/Dropdown";
 export { default as DashboardLayout } from "./layouts/DashboardLayout";
 export { default as Navbar } from "./layouts/Navbar";
+export { default as Card } from "./components/Card";
+export { default as Switch } from "./components/Switch";

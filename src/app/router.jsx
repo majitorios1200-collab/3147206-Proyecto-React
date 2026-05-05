@@ -6,7 +6,7 @@ import { CreateUserPage } from "@/features/users"
 const router = createBrowserRouter([
         {
             path: "/",
-            element: <Navigate to="/auth" replace/>,
+            element: <Navigate to="/auth" replace/>, 
         },
         {
             path: "/auth",

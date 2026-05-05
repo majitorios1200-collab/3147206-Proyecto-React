@@ -2,7 +2,9 @@ import { Outlet, Link} from "react-router-dom"
 import heroBg from "@/assets/images/bg-3.jpg"
 import {SquareArrowLeft } from "lucide-react";
 import { IconButton, Navbar} from "@/shared";
+import { HomePage } from "@/features/home";
 
+    
 
 // import { CreateUserPage } from "../../features/users"
 
@@ -29,6 +31,7 @@ export default function DashboardLayout () {
 
         {/* Contenido Dinamico de las paginas */}
         <main>
+            <HomePage/>
         {/* <CreateUserPage/> */}
         <Outlet/>  
 
