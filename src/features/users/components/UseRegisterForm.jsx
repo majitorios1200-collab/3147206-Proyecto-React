@@ -5,7 +5,7 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import { SquareArrowRightEnter, Menu} from "lucide-react";
 
 import { Input, Button,  Select, CheckBox, IconButton, Dropdown, DropdownTrigger,  DropdownItem,
-    DropdownContent,} from "@/shared";
+    DropdownContent, FileInput} from "@/shared";
 
 export default function UserRegisterForm(){
 
@@ -19,6 +19,7 @@ export default function UserRegisterForm(){
         userDocumentType: "",
         userDocumentNumber: "",
         userPassword: "",
+        userImage: [],
 
         //Flags Booleanos
         isStaff: false,
@@ -181,7 +182,22 @@ export default function UserRegisterForm(){
             onChange={handleChange}
         
         />
-        
+
+        {/* Contenedot del input */}
+        <div>
+        <h4>Minimo puede subir 12 archivos, archivos permitidos jpg, png etc</h4>
+        <FileInput
+            value={formData.userImage}
+            onChange={(files) => 
+                setFormData((prev) => ({ ...prev, userImage: files}))
+            }
+            multiple={true}
+        />
+        {errors.userImage && (
+            <span className="text-red-500 text-sm">{errors.userImage}</span>
+        )}
+        </div>
+
       {/*Actions */}
 
         <div className="flex items-end justify-center gap-6">

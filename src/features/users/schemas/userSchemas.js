@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { fileSchema } from "@/shared";
 
 export const userSchema = z.object({
 
@@ -32,4 +33,6 @@ export const userSchema = z.object({
         .regex(/[0-9]/, "Debe contener al menos un numero")
         .regex(/[^A-Za-z0-9]/, "Debe contener al menos un caracter especial"),
 
-})
+    userImage: fileSchema.shape.files.optional()
+
+});
