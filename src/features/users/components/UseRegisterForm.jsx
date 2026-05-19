@@ -89,11 +89,11 @@ export default function UserRegisterForm(){
                 Registro de usuarios
             </h1>
         <form 
-        className="grid grid-cols-1  items-center gap-6 "
+        className="w-full px-4 md:px-0 "
         onSubmit={handleSubmit}
         >
 
-            <div  className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-2xl mx-auto border p-8 rounded-md">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-2xl mx-auto border p-4 md:p-8 rounded-md">
 
         <Input
             label="Nombre"
@@ -200,7 +200,7 @@ export default function UserRegisterForm(){
 
       {/*Actions */}
 
-        <div className="col-span-2 flex justify-end items-center gap-4 mt-4">
+            <div className=" md:col-span-2 flex flex-wrap justify-center md:justify-end items-center gap-4 mt-4">
             <Button
                 variant="secundary"
                 size = "md"
