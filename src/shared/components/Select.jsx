@@ -5,15 +5,17 @@ export default function Select({
     value,
     onChange,
     options = [],
+}) {
 
-}){
-
-    
     return (
-        <div className="w-[320px]">
+        <div className="w-full">
 
             {label && (
-                <label className= {`block text-caption mb-1 text-text-secondar place-self-start ${error ? "text-red-800" : "text-text-primary"}`}>
+                <label
+                    className={`block text-caption mb-1 place-self-start ${
+                        error ? "text-red-800" : "text-text-primary"
+                    }`}
+                >
                     {label}
                 </label>
             )}
@@ -22,33 +24,35 @@ export default function Select({
                 name={name}
                 value={value}
                 onChange={onChange}
-                className ={`
-                w-full 
-                h-12 
-                rounded-md
-                border
-                border-border
-                px-4
-
-                hover:border-2
-                hover:border-focus-border
-
-                ${error ? "border-red-800" : "border border-border"}
+                className={`
+                    w-full
+                    h-12
+                    rounded-md
+                    border
+                    px-4
+                    hover:border-2
+                    hover:border-focus-border
+                    ${
+                        error
+                            ? "border-red-800"
+                            : "border-border"
+                    }
                 `}
-                > 
-                <option value="">Selecciona una opcion</option>  
+            >
+                <option value="">Selecciona una opción</option>
 
                 {options.map((opt) => (
-
                     <option key={opt.id} value={opt.id}>
                         {opt.label}
                     </option>
-                ))
-
-                }
-
+                ))}
             </select>
-                {error && <p className="text-caption text-red-800 place-self-start">{error}</p>}
+
+            {error && (
+                <p className="text-caption text-red-800 place-self-start">
+                    {error}
+                </p>
+            )}
         </div>
-    )
+    );
 }

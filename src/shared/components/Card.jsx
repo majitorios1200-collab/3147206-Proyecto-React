@@ -6,7 +6,8 @@ export default function Card ({ product }){
         <div
             className="
             w-full
-            dark:bg-neutral-950/80
+            bg-white
+            border border-gray-200
             backdrop-blur-[2px]
             shadow-lg
             rounded-2xl

@@ -123,7 +123,7 @@ export default function DataTable({ data, columns }) {
 
 
           {/* ================== CABECERA ================== */}
-          <thead className="bg-gray-100">
+          <thead className="bg-pink-300">
 
 
             {/* TanStack agrupa cabeceras automáticamente */}
@@ -174,7 +174,7 @@ export default function DataTable({ data, columns }) {
             {table.getRowModel().rows.map(row => (
 
 
-              <tr key={row.id} className="hover:bg-gray-50">
+              <tr key={row.id} className="hover:bg-pink-200">
 
 
                 {/* Celdas visibles de cada fila */}

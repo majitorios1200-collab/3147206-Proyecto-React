@@ -1,25 +1,22 @@
 export default function Input({ label, type = "text", error, ...props }) {
-  // Cuerpo de la función
+
   return (
-    // Contenedor del input que se exporta con label, cuerpo y feedback message
     <div className="w-full">
-      
+
       {/* Label */}
       {label && (
         <label
           className={`
-                    block
-                    text-[8px]
-                    mb-1
-                    place-self-start
-                    ${error ? "text-red-800" : "text-text-primary"}
-                `}
+            block
+            text-[8px]
+            mb-1
+            place-self-start
+            ${error ? "text-red-800" : "text-text-primary"}
+          `}
         >
           {label}
         </label>
       )}
-
-      {/* ============================================================ */}
 
       {/* Contenedor del input */}
       <div
@@ -27,53 +24,57 @@ export default function Input({ label, type = "text", error, ...props }) {
           relative
           h-12
           flex
-          items-center          
+          items-center
         "
       >
-        {/* Área interactiva invisible de un input 48px */}
+
+        {/* Área interactiva invisible */}
         <div
           className="
-                        absolute
-                        inset-0
-                    "
+            absolute
+            inset-0
+          "
           onMouseDown={(e) => {
             e.preventDefault();
-            // Mueve el foco al siguiente elemento hermano del elemento actual.
-            // `currentTarget` referencia el elemento que tiene el handler del evento.
-            // `nextSibling` obtiene el siguiente nodo en el DOM (puede ser un input u otro elemento).
-            // `focus()` cambia el foco del usuario hacia ese elemento.
             e.currentTarget.nextSibling.focus();
           }}
         />
 
-        {/* Área visual del input */}
+        {/* Input */}
         <input
           type={type}
           className={`
-                relative
-                w-full
-                h-12
-                rounded-md
-                border
-                border-border
-                px-4
-                text-base
-                
-                hover:border-2
-                hover:border-focus-border
+            relative
+            w-full
+            h-12
+            rounded-md
+            border
+            px-4
+            text-base
 
-                focus:outline-none
-                focus:ring-1
-                focus:ring-focus-ring
+            hover:border-2
+            hover:border-focus-border
 
-                ${error ? "border-red-800" : "border border-border"}
-            `}
+            focus:outline-none
+            focus:ring-1
+            focus:ring-focus-ring
+
+            ${
+              error
+                ? "border-red-800"
+                : "border-border"
+            }
+          `}
           {...props}
         />
       </div>
 
       {/* Feedback */}
-      {error && <p className="text-caption text-red-800 place-self-start">{error}</p>}
+      {error && (
+        <p className="text-caption text-red-800 place-self-start">
+          {error}
+        </p>
+      )}
     </div>
   );
 }

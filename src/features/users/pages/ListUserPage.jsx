@@ -17,7 +17,7 @@ export default function ListUserPage() {
       </h1>
 
     <div className=" p-2 flex justify-end gap-4 " >
-    <Button className="bg-mist-500 text-white px-4 py-2 rounded"
+    <Button className="bg-pink-400 text-white px-4 py-2 rounded"
         variant="primary"
         size = "sm"
         onClick={() => navigate("/dashboard/createUser")}
@@ -25,7 +25,7 @@ export default function ListUserPage() {
         >
         Reportes de Usuario
     </Button>
-    <Button className="bg-mist-500 text-white px-4 py-2 rounded"
+    <Button className="bg-pink-400 text-white px-4 py-2 rounded"
         variant="primary"
         size = "sm"
         onClick={() => navigate("/dashboard/createUser")}

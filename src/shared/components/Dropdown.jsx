@@ -99,9 +99,9 @@ export function DropdownTrigger({children}) {
                
                 p-1
                 z-100
-                dark:bg-neutral-950/80
-                backdrop-blur-[1px]
-                shadow-lg
+                bg-white
+                border-gray-200
+                shadow-md
                 rounded-2xl
                 overflow-hidden
                 hover:shadow-black
