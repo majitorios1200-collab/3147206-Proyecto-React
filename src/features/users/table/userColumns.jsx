@@ -38,6 +38,22 @@ export const userColumns = [
     header: "Dirección",
   },
 
+   // Columna Tipo Documento
+  {
+    accessorKey: "document_Type",
+    header: "Tipo de Documento",
+  },
+   // Columna Numero documento
+  {
+    accessorKey: "document_Number",
+    header: "Numero de documento",
+  },
+   // Columna Numero documento
+  {
+    accessorKey: "phone",
+    header: "Telefono",
+  },
+
 
   // Columna Estado (activo / inactivo)
   {
