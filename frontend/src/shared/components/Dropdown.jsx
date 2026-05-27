@@ -96,12 +96,20 @@ export function DropdownTrigger({children}) {
                 mt-2                
                 min-w-48
                 border
+<<<<<<< HEAD:frontend/src/shared/components/Dropdown.jsx
                
                 p-1
                 z-100
                 bg-white
                 border-gray-200
                 shadow-md
+=======
+                text-text-inverse
+                p-1
+                dark:bg-neutral-950/80
+                backdrop-blur-[1px]
+                shadow-lg
+>>>>>>> f33b39546eaa6e27916f1f55c03f7f1adc560fd4:src/shared/components/Dropdown.jsx
                 rounded-2xl
                 overflow-hidden
                 hover:shadow-black
