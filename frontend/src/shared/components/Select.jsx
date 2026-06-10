@@ -41,12 +41,12 @@ export default function Select({
             >
                 <option value="">Selecciona una opción</option>
 
-                {options.map((opt) => (
-                    <option 
-                        key={opt.value} 
+                {options.map((opt, index) => (
+                    <option
+                        key={`${opt.value}-${index}`}
                         value={opt.value}
                     >
-                    {opt.label}
+                        {opt.label}
                     </option>
                 ))}
             </select>
