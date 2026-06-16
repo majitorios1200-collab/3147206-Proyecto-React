@@ -2,6 +2,8 @@ import { useState} from "react"
 import { loginSchemas } from "../schemas/loginSchemas";
 import { Link, useNavigate } from "react-router-dom";
 import { SquareArrowRightEnter, Menu} from "lucide-react";
+import { login } from "../services/authService";
+
 
 import { Input, Button } from "@/shared";
 
@@ -43,31 +45,36 @@ export default function Login(){
      * Funcion que se ejecuta cuando se envia el formualario
      */
 
-    const handleSubmit = (e) => {
-    
-            e.preventDefault()
-    
-            const result = loginSchemas.safeParse(formData)
-    
-            if(!result.success){
-                const fieldErrors = {};
-    
-                result.error.issues.forEach((issue) => {
-                    const field = issue.path[0];
-                    
-                    fieldErrors[field] = issue.message;
-                });
-    
-                setErrors(fieldErrors);
-    
-                return;
-            }
-    
-            setErrors({});
-    
-            console.log("Usuario valido", result.data)
-        };
-    
+        const handleSubmit = async (e) => {
+
+        e.preventDefault();
+
+        const result = loginSchemas.safeParse(formData);
+
+        if (!result.success) {
+            const fieldErrors = {};
+
+            result.error.issues.forEach((issue) => {
+                fieldErrors[issue.path[0]] = issue.message;
+            });
+
+            setErrors(fieldErrors);
+            return;
+        }
+
+        setErrors({});
+
+        try {
+            const data = await login(result.data);
+
+            sessionStorage.setItem("token", data.token);
+
+            navigate("/dashboard/userList");
+
+        } catch (error) {
+            alert(error.message);
+        }
+    };
 
     return (
         <div className="flex flex-col justify-center h-screen">
@@ -107,17 +114,18 @@ export default function Login(){
         <div className="flex items-end justify-center gap-6">
             <Button
                 variant="secundary"
-                size = "md"
+                size="md"
+                type="button"  // ← evita que dispare el submit
                 onClick={() => navigate(-1)}
-                >
+            >
                 Cancelar
             </Button>
 
             <Button 
                 variant="primary"
-                size = "sm"
-                onClick={() => navigate("/dashboard")}
-                >
+                size="sm"
+                type="submit"  // ← dispara el handleSubmit del form
+            >
                 Guardar
             </Button>
                 </div>

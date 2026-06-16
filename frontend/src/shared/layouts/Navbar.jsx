@@ -1,10 +1,18 @@
 import { Search, User } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import { useState } from "react";
 import { IconButton, Dropdown, DropdownTrigger,  DropdownItem,
     DropdownContent, Switch, SearchField } from "@/shared";
 import  logo  from "@/assets/images/logo-2.png";
+import { logout } from "../components/auth/services/logoutService";
 export default function Navbar() {
+
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        logout();
+        navigate("/auth");
+    }
 
     //Componente busqueda
     const [search, setSearch] = useState("");
@@ -129,10 +137,8 @@ export default function Navbar() {
                            Gestionar Usuarios
                             </Link>
                         </DropdownItem>
-                        <DropdownItem>
-                            <Link to="/dashboard/auth" className="block w-full">
+                        <DropdownItem onClick={handleLogout}>
                             Cerrar sesion
-                            </Link>
                         </DropdownItem>
                     </DropdownContent>
                 </Dropdown>

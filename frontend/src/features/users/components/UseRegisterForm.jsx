@@ -1,15 +1,12 @@
 import { useState, useEffect} from "react"
 import { getDocumentTypes } from "@/features/users/services/selectService";
 import { userSchema } from "../schemas/userSchemas";
-import { Link, Navigate, useNavigate } from "react-router-dom";
-import { SquareArrowRightEnter, Menu} from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { createUser } from "../services/userService";
 
-import { Input, Button,  Select, CheckBox, IconButton, Dropdown, DropdownTrigger,  DropdownItem,
-    DropdownContent, FileInput} from "@/shared";
+import { Input, Button,  Select, CheckBox, FileInput} from "@/shared";
 
 export default function UserRegisterForm(){
-
     const navigate = useNavigate();
 
     const [IsSubmitting, setIsSubmitting] = useState(false)
@@ -29,6 +26,7 @@ export default function UserRegisterForm(){
         isSuperUser: false,
     });
     const [errors, setErrors] = useState({})
+
     useEffect(() => {
         getDocumentTypes().then(setDocumentTypes);
     },[])
@@ -43,6 +41,7 @@ export default function UserRegisterForm(){
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
 
         const result = userSchema.safeParse(formData);
 
@@ -198,35 +197,6 @@ export default function UserRegisterForm(){
                     >
                         {IsSubmitting ? "Guardando..." : "Guardar"}
                     </Button>
-
-                    <Link to="/dashboard">
-                        <IconButton variant="ghost">
-                            <SquareArrowRightEnter />
-                        </IconButton>
-                    </Link>
-
-                    <div className="p-10">
-                        <Dropdown>
-                            <DropdownTrigger>
-                                <IconButton arialLabel="Menu de usuario">
-                                    <Menu/>
-                                </IconButton>
-                            </DropdownTrigger>
-
-                            <DropdownContent className="right-0 w-48">
-                                <DropdownItem>
-                                    <Link to="/auth" className="block w-full">
-                                        Autenticacion
-                                    </Link>
-                                </DropdownItem>
-                                <DropdownItem>
-                                    <Link to="/dashboard" className="block w-full">
-                                        Panel de control
-                                    </Link>
-                                </DropdownItem>
-                            </DropdownContent>
-                        </Dropdown>
-                    </div>
                 </div>
             </div>
         </form>

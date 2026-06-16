@@ -7,7 +7,7 @@ export const authRepository = {
         const query = `
         SELECT id, user_email, password, is_active
         FROM users
-        WHERE user_email = $1 //Validacion por array 
+        WHERE user_email = $1 
         LIMIT 1;
         `;
 

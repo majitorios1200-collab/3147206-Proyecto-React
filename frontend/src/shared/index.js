@@ -24,5 +24,6 @@ export {
     DropdownItem,
     DropdownContent,
 } from "./components/Dropdown";
+export { default as ProtectedRoute } from "./components/auth/ProtectedRoute";
 
 // export { default as CallToActionLayout } from "./layouts/CallToActionLayout";
