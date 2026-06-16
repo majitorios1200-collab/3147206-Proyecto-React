@@ -3,6 +3,7 @@ import { AuthLayout, DashboardLayout, ProtectedRoute } from "@/shared";
 import { Login } from "@/features/auth"
 import { CreateUserPage, ListUserPage} from "@/features/users"
 import { HomePage } from "../features/home";
+import AccessPage  from "../features/acess/pages/AccessPage";
 
 const router = createBrowserRouter([
     {
@@ -29,6 +30,7 @@ const router = createBrowserRouter([
             { path: "/dashboard/userList", element: <ListUserPage/> },
             { path: "/dashboard/home", element: <HomePage/> },
             { path: "/dashboard/createUser", element: <CreateUserPage/> },
+            { path: "/dashboard/access", element: <AccessPage/> },
         ],
     },
 ])

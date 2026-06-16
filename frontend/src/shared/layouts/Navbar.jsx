@@ -137,6 +137,11 @@ export default function Navbar() {
                            Gestionar Usuarios
                             </Link>
                         </DropdownItem>
+                        <DropdownItem>
+                            <Link to="/dashboard/access" className="block w-full">
+                           Admin
+                            </Link>
+                        </DropdownItem>
                         <DropdownItem onClick={handleLogout}>
                             Cerrar sesion
                         </DropdownItem>
